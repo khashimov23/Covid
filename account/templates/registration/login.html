@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Kirish{% endblock %}
+
+{% block content %}
+<h1>Kirish</h1>
+{% if form.errors %}
+<p>
+    Foydalanuvchi nomi va parolingiz mos kelmadi.
+    Iltimos, yana bir bor urinib ko'ring.
+</p>
+{% else %}
+<p>Iltimos, tizimga kirish uchun quyidagi formadan foydalaning.</a></p>
+{% endif %}
+<div class="login-form">
+<form action="{% url 'login' %}" method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <p><input class="btn btn-outline-dark" type="submit" value="Kirish"></p>
+</form>
+</div>
+{% endblock %}

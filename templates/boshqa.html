@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	
+	<title>Farm Standart lyuks</title>
+	
+
+</head>
+<!-- oncopy='return false;' onmousedown='return false;' oncontextmenu='return false;' -->
+<body>
+	
+	<div class="py-4">
+		<div class="container" style="border: 2px solid black; padding: 10px;">
+			<div class="card">
+				<small class="text-muted pt-3 badge text-wrap">ENG</small>
+				<h4 class="text-center "> The test results coronavirus (Covid-19) infection</h4>
+				<h5 class="text-center text-uppercase text-danger mb-2">REFRENCE</h5>
+					<hr>
+				<small class="text-muted badge text-wrap">UZB</small>
+				<h4 class="text-center">Коронавирус (Covid-19) инфекциясига текширилган тестнатижалари ҳақида</h4>
+				<h5 class="text-center text-uppercase text-danger mb-2">МАЪЛУМОТНОМА</h5>
+					<hr>
+				<small class="text-muted badge text-wrap">RUS</small>
+				<h4 class="text-center">о результате проводимого теста на коронавирусную (Covid 19) инфекции</h4>
+				<h5 class="text-center text-uppercase text-danger mb-2">справка</h5>
+			</div><br>
+		
+			<!-- card 1 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2">
+					<div class="col">Full name</div>
+					<div class="col">Фамилия, исми, шарифи</div>
+					<div class="col">Фамилия, имя, отчествo</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3 class="text-uppercase">{{ client.full_name }}</h3>
+				</div>
+			</div>
+
+			<!-- card 2 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">Date of bith</div>
+					<div class="col">Туғилган санаси</div>
+					<div class="col">Дата рождения</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3>{{ client.date_of_birth }}</h3>
+				</div>
+			</div>
+			
+			<!-- card 3 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">Passport series and number</div>
+					<div class="col">Паспорт серия ва рақами</div>
+					<div class="col">Cерия и номер пасспорта</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3 class="text-uppercase">FA 1234567</h3>
+				</div>
+			</div>
+
+			<!-- card 4 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">Phone number</div>
+					<div class="col">Телефон рақами</div>
+					<div class="col">Номер телефона</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3>+998937377474</h3>
+				</div>
+			</div>
+
+			<!-- card 5 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">Date tested</div>
+					<div class="col">Текширилган сана</div>
+					<div class="col">Дата тестирования</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3>18/03/2021</h3>
+				</div>
+			</div>
+
+			<!-- card 6 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">Research method</div>
+					<div class="col">Текширув усули</div>
+					<div class="col">Метод исследования</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3 class="text-uppercase"><b>{{ info.research_method }}</b></h3>
+				</div>
+			</div>
+
+			<!-- card 7 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">The result of laboratory analyses</div>
+					<div class="col">Лаборатория таҳлил натижаси</div>
+					<div class="col">Ресультат лабораторного анализа</div>
+				</div>
+				<div style="color: green;" class="p-2 mt-2 pb-0">
+					<h3 class="text-uppercase">Oтрицательный / Negative </h3>
+				</div>
+			</div>
+			<br>
+			<hr style="border: solid 8px #000;">
+			<br>
+
+			<!-- card 8 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">Name of laboratory</div>
+					<div class="col">Лаборатория номи</div>
+					<div class="col">Наименование лаборатории</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3 class="text-uppercase"><b>{{ info.name_of_labaratory }}</b></h3>
+				</div>
+			</div>
+
+			<!-- card 9 item -->
+			<div class="card mt-4">
+				<div class="row row-cols-1 p-lg-2 ">
+					<div class="col">Head of laboratory</div>
+					<div class="col">Лаборатория мудири</div>
+					<div class="col">Заведующий лаборатории</div>
+				</div>
+				<div class="text-dark p-2 mt-2 pb-0" style="background-color: #a8adb8;">
+					<h3 class="text-uppercase">{{ info.head_of_labaratory }}</h3>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>

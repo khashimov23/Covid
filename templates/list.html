@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ro'yhat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">OOO Farm Standart Lyuks</a>|
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="{% url 'dashboard' %}">Home </a>
+            {% if request.user.is_authenticated %}
+              <a class="nav-item nav-link " href="{% url 'client_list' %}">Ro'yhat</a>
+              <a class="nav-item nav-link " href="{% url 'forma' %}">Yangi +</a>
+            {% endif %}
+          </div>
+       
+      </div>
+    </div>
+    
+    <span >
+      {% if request.user.is_authenticated %}
+        Salom {{ request.user }}
+        <a class="btn btn-outline-dark btn-sm" href="{% url 'logout' %}">Chiqish</a>
+      {% else %}
+        <a class="btn btn-outline-dark" href="{% url 'login' %}">Kirish</a>
+      {% endif %}
+    </span>
+  </nav>
+
+    <section class="container">
+            <table class="table table-bordered border-primary">
+                <thead class="table-dark">
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Ism/Familya</th>
+                    <th scope="col">Tug'ilgan sana</th>
+                    <th scope="col">Passport seriya</th>
+                    <th scope="col">Jins</th>
+                    <th scope="col">Telfon</th>
+                    <th scope="col">Test olindi</th>
+                    <th scope="col">Test natijasi</th>
+                    <th scope="col">Qayerga</th>
+                    <th scope="col">QRcode</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for client in clients %}
+                  <tr>
+                      <th scope="row">{{ client.id }}</th>
+                      <th>{{ client.full_name }}</th>
+                      <th>{{ client.date_of_birth }}</th>
+                      <th>{{ client.passport }}</th>
+                      <th>{{ client.gender }}</th>
+                      <th>{{ client.telfon }}</th>
+                      <th>{{ client.test_olindi }}</th>
+                      <th>{{ client.natija_chiqdi }}</th>
+                      <th>{{ client.qayerga }}</th>
+                      <th><a href="{{ client.qrcode.url }}" download class="btn btn-small btn-success">qrcode</a></th>
+                    </tr>
+                  {% endfor %}
+                  </tbody>
+            </table>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

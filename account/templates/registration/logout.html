@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Chiqish{% endblock %}
+
+{% block content %}
+  <h1>Chiqish</h1>
+  <p>
+    Siz muvaffaqiyatli tizimdan chiqdingiz.
+    yana tizimga kirishingiz mumkin <a href="{% url 'login' %}">Kirish</a>.
+  </p>
+{% endblock %}

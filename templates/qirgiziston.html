@@ -1,0 +1,207 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	
+    <title>Farm Standart lyuks</title>
+</head>
+<body>
+    <style>
+        #first{
+            border: 10px solid blue;
+        }
+
+        #second{
+            border: 10px solid #fff;
+        }
+        #third {
+            border: 10px solid green;
+        }
+        .qizil {
+            border: 3px solid red;
+        }
+        #container {
+            width: 100%;
+        }
+    </style>
+    <div >
+        <div class="text-dark p-3" style="background-color: #a8adb8;">
+            <h6>Пациент: </h6><b class="text-uppercase">{{ client.full_name }}</b>
+        </div>
+
+        <div id="first">
+            <div class="qizil">
+                <div id="second">
+                    <div class="qizil"> 
+                        <div id="third">
+                            <div id="container">
+
+                                <div class="py-4">
+                                    <div class="container">
+                                        <div class="card p-2">
+                                            <h1 class="text-center text-uppercase"> 
+                                                Ministry of health of the republic of uzbekistan <br>
+                                                confirmation of covid-19 test result
+                                            </h1>
+                                            <div class="text-center">
+                                                <img src="{% static 'img/logo.png' %}" class="rounded" width="200px">
+                                            </div>
+                                            <h1 class="text-center text-uppercase"> 
+                                                министерство здравоохранения республики узбекистан <br> подтверждение ресультата теста covid-19
+                                            </h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="py-4">
+                                    <div class="container">
+                                        <!-- card 1 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col"><b>ID | Номер:</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b>{{ client.id }}</b>
+                                            </div>
+                                        </div>
+
+                                        <!-- card 2 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col font-weight-bold"><b> Laboratory (name) | Лаборатория (название):</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b class="text-uppercase">ooo farm standart lyuks</b>
+                                            </div>
+                                        </div>
+
+                                        <!-- card 3 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col font-weight-bold"><b> Place of sampling | Место забора анализа:</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b class="text-uppercase">ooo farm standart lyuks</b>
+                                            </div>
+                                        </div>
+
+                                        <!-- card 4 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col font-weight-bold"><b> Research method | Метод исследования:</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b>Real-Time Polymerase chain reaction method (Real-Time PCR) | <br> Полимэразная цепная реакция в реальном времени (ПЦП)</b>
+                                            </div>
+                                        </div>
+
+                                        <br>
+                                        <hr style="border: solid 8px #000;">
+                                        <br>
+
+                                        <!-- card 5 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col"><b>Passport | Серия и номер паспорта:</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b>{{ client.passport }}</b>
+                                            </div>
+                                        </div>
+
+                                        <!-- card 6 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col"><b>Full name / Полное имя:</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b class="text-uppercase">{{ client.full_name }}</b>
+                                            </div>
+                                        </div>
+
+                                        <!-- card 7 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col"><b>Birth date / Дата рождения</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b>{{ client.date_of_birth }}</b>
+                                            </div>
+                                        </div>
+
+                                        <!-- card 8 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col"><b>Sex / Пол:</b></div>
+                                            </div>
+                                            {% with gender=client.gender %}
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                {% if gender == 'male' %}
+                                                <b>Male / Мужчина</b>
+                                                {% else %}
+                                                <b>Female / Женщина</b>
+                                                {% endif %}
+                                            </div>
+                                            {% endwith %}
+                                        </div>
+
+                                        <!-- card 9 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col"><b>Analysis date / Дата сдачи анализа:</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b>{{ client.test_olindi }}</b>
+                                            </div>
+                                        </div>
+
+                                        <!-- card 10 item -->
+                                        <div class="card mt-4">
+                                            <div class="row row-cols-1 p-lg-2">
+                                                <div class="col"><b>Test result and date / Результат и дата теста:</b></div>
+                                            </div>
+                                            <div class="text-dark p-2" style="background-color: #a8adb8;">
+                                                <b>{{ client.natija_chiqdi }}</b>
+                                            </div>
+                                        </div><br>
+
+                                        <div class="card">
+                                            <img style="width: 300px; height: 300px;" src="{{ client.qrcode.url }}" class="img-thumbnail">
+                                        </div><br><br><br>
+
+
+                                        <footer>
+                                            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                                                <h6 class="text-uppercase">
+                                                    Служба санитарно-епидемиологического благополучия и общественного здоровья республики узбекистан
+                                                </h6>
+                                                <p class="text-dark">
+                                                    Адрес: {{ info.manzil }}
+                                                </p>
+                                                <p> 
+                                                    Телефон: <a href="tel:{{ info.telfon  }}"> {{ info.telfon }}</a> 
+                                                </p>
+                                                <p>
+                                                    <a href = "mailto: {{ info.email }}">{{ info.email }}</a>
+                                                </p>
+                                              
+                                            </div>
+                                            <!-- Copyright -->
+                                          </footer>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

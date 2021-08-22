@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Hisob ochish{% endblock %}
+
+{% block content %}
+  <h1>Hisob ochish</h1>
+  <p>Iltimos, quyidagi shakl yordamida ro'yxatdan o'ting:</p>
+  <form method="post">
+    {{ user_form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Hisob ochish"></p>
+  </form>
+{% endblock %}

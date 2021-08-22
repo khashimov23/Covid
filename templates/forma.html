@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">OOO Farm Standart Lyuks</a>|
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{% url 'dashboard' %}">Home </a>
+                {% if request.user.is_authenticated %}
+                  <a class="nav-item nav-link " href="{% url 'client_list' %}">Ro'yhat</a>
+                  <a class="nav-item nav-link " href="{% url 'forma' %}">Yangi +</a>
+                {% endif %}
+              </div>
+           
+          </div>
+        </div>
+        
+        <span class="user">
+          {% if request.user.is_authenticated %}
+            Salom {{ request.user }}
+            <a class="btn btn-outline-dark btn-sm" href="{% url 'logout' %}">Chiqish</a>
+          {% else %}
+            <a class="btn btn-outline-dark" href="{% url 'login' %}">Kirish</a>
+          {% endif %}
+        </span>
+      </nav>
+
+
+
+
+    <section class="container">
+        <div class="forma pt-5 w-50">
+            <form method="post" class="form-group">
+                {{ form.as_p }}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Saqlash">
+              </form>
+        </div>
+    </section>
+    <script>
+        // This code activates flatpickr on fields with the 'datetimefield' class when the document has loaded
+        window.addEventListener("DOMContentLoaded", function () {
+            flatpickr(".datetimefield", {
+                enableTime: true,
+                enableSeconds: true,
+                dateFormat: "Y-m-d H:i:S",
+            });
+        });
+    </script>
+</body>
+</html>

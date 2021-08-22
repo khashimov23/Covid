@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Kirish{% endblock %}
+
+{% block content %}
+  <h1>Kirish</h1>
+  <p>Iltimos, tizimga kirish uchun quyidagi formadan foydalaning:</p>
+  <form method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <p><input type="submit" value="Kirish"></p>
+  </form>
+{% endblock %}
