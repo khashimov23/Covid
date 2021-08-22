@@ -3,3 +3,6 @@ venv/
 __pychace__/
 .env
 Procfile
+media
+staticfiles
+static
